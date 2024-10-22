@@ -17,7 +17,7 @@ class TelegramDataController extends Controller
 
     public function telegramCheck(Request $request)
     {
-        $bot_token = env('TELEGRAM_BOT_TOKEN');
+        $bot_token = env('TELEGRAM_BOT_TOKEN_DEV');
         $data_check_string = $request?->telegram_data;
         $cat = $data_check_string;
 
