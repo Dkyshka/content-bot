@@ -13,7 +13,7 @@ class TelegramSendingService
 
     public function __construct()
     {
-        $this->token = env('TELEGRAM_BOT_TOKEN_DEV');
+        $this->token = env('TELEGRAM_BOT_TOKEN');
     }
 
     public function sendMessage(int $chat_id, string $message): void
