@@ -44,7 +44,7 @@ class TelegramRouteAction
             } elseif($callback) {
                 (new TelegramCallbackService($chat_id))->process($callback->data, $callback->id, $callback->message->message_id);
             } elseif($join) {
-
+                Storage::append('join/1.txt', json_encode($join));
                 $keyboard = [
                     [
                         [
