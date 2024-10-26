@@ -84,10 +84,12 @@ class TelegramSendingService
     public function sendVideo(int $chat_id, string $video_path, string $caption = '', array $keyboard = [])
     {
 
+        $file_id = "BAACAgIAAxkDAAMvZx0VVBzQLWnRM8hlgo6M9kRshHoAAqZiAAJ4BehIwObw0skHKD02BA";
         $data = [
             'chat_id' => $chat_id,
             'caption' => $caption,
-            'video' => curl_file_create($video_path), // Путь к видеофайлу
+//            'video' => curl_file_create($video_path), // Путь к видеофайлу
+            'video' => $file_id, // Путь к видеофайлу
             'supports_streaming' => true,
             'reply_markup' => json_encode([
                 'inline_keyboard' => $keyboard,
