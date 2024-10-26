@@ -44,8 +44,22 @@ class TelegramRouteAction
             } elseif($callback) {
                 (new TelegramCallbackService($chat_id))->process($callback->data, $callback->id, $callback->message->message_id);
             } elseif($join) {
-
+                
                 $keyboard = [
+                    [
+                        [
+                            'text' => "Kanalga obuna bo'lish",
+                            'url' => env('TELEGRAM_BOT_CHANNEL_INVITE')
+                        ]
+                    ],
+                    [
+                        [
+                            'text' => 'Shaxsiy hisob',
+                            'web_app' => [
+                                'url' => "https://contentclub.uz/telegram"
+                            ]
+                        ]
+                    ],
                     [
                         [
                             'text' => '💳 Tariflar',
@@ -58,6 +72,12 @@ class TelegramRouteAction
                             'url' => $this->setting->markup?->manager,
                         ]
                     ],
+                    [
+                        [
+                            'text' => "🔎 Kanal haqida batafsil",
+                            'callback_data' => 'action_about',
+                        ]
+                    ]
                 ];
 
                 $message = MessageReplaceBrService::replacing($this->setting->markup?->about);
