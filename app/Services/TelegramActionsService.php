@@ -26,7 +26,7 @@ class TelegramActionsService
                 [
                     [
                         'text' => '📑 Ommaviy oferta',
-                        'url' => $this->setting->markup?->public_offer,
+                        'url' => url('files/oferta.pdf'),
                     ],
                 ],
                 [
