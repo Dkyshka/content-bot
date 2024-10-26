@@ -36,7 +36,7 @@ class TelegramRouteAction
             $join = $data?->chat_join_request ?? null;
             $chat_id = $chat_id ? $chat_id : ($join?->from?->id ?? null);
 
-            Storage::append('vide/1.txt', json_encode($data));
+
             if ($message) {
                 (new TelegramMessageService($chat_id))->message($message);
             } elseif($contacts) {
